@@ -7,13 +7,16 @@ import { FotosComponent } from './components/fotos/fotos.component';
 import { CargaComponent } from './components/carga/carga.component';
 
 //Firebase
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 //import { AngularFireStorageModule } from 'angularfire2/';
 //import { AngularFireAuthModule } from '@angular/fire/auth';
 
-import { environment } from 'src/environments/environment';
+
+import { APP_ROUTES } from './app.routes';
+import { CargaImagenesService } from './services/carga-imagenes.service';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,16 @@ import { environment } from 'src/environments/environment';
   ],
   imports: [
     BrowserModule,
+    APP_ROUTES,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireStorageModule, 
+    AngularFireAuthModule, 
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    CargaImagenesService
+  ],
   bootstrap: [AppComponent]
-})
+});
+
 export class AppModule { }
