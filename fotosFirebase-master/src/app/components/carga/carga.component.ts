@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FileItem } from 'src/app/models/file-item';
-import { CargaImagenesService } from 'src/app/services/carga-imagenes.service';
+import { CargaImagenesService } from '../../services/carga-imagenes.service';
 
 @Component({
   selector: 'app-carga',
   templateUrl: './carga.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class CargaComponent implements OnInit {
 
